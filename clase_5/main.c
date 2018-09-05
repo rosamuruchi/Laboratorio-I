@@ -20,7 +20,6 @@ int main()
     printf("tamano: %d\n",sizeof(listadoDeNotas));
     printf("direccion: %d\n", &numeroIngresado);
     printf("direccion: %d\n", listadoDeNotas);*/
-
     cargarListado(listadoDeNotas,CANTIDAD);
     mostrarListado(listadoDeNotas,CANTIDAD);
     mostrarInformacionDelArray(listadoDeNotas,CANTIDAD);
@@ -118,9 +117,15 @@ void mostrarInformacionDelArray(int listado [], int tamanio)
     int mayor;
     int menor;
     int cantidadPares;
+    int aprobados;
+    int aFinal;
+    int desaprobados;
+    aprobados = retornarCantidadEntreNotas(listado,tamanio,6,10);
+    aFinal = retornarCantidadEntreNotas(listado,tamanio,4,5);
+    desaprobados = retornarCantidadEntreNotas(listado,tamanio,1,3);
     sumaDeNotas=retornarTotal(listado,CANTIDAD);
     promedio=retornarPromedio(listado,CANTIDAD);
-    mayor=calcularMayor(listado,CANTIDAD);
+    mayor=calcularMayor(listado, CANTIDAD);
     menor=calcularMenor(listado, CANTIDAD);
     cantidadPares=calcularPares(listado, CANTIDAD);
 
@@ -129,9 +134,21 @@ void mostrarInformacionDelArray(int listado [], int tamanio)
     printf("\n\n\tLa cantidad de Pares es: %d",cantidadPares);
     printf("\n\n\tLa suma total es: %d",sumaDeNotas);
     printf("\n\n\tEl promedio es: %d",promedio);
+    printf("\n\nLa cantidad de aprobados es: %d",aprobados);
+    printf("\n\nLa cantidad de gente a final es: %d",aFinal);
+    printf("\n\nLa cantidad de desaprobados es: %d\n",desaprobados);
 }
 
 int retornarCantidadEntreNotas(int listado[], int tamanio,int limInferior,int limSuperior)
 {
-
+    int cantidadNotas=0;
+    int i;
+    for(i=0; i<tamanio; i++)
+    {
+        if(listado[i]>=limInferior && listado[i]<=limSuperior)
+        {
+            cantidadNotas++;
+        }
+    }
+    return cantidadNotas;
 }
