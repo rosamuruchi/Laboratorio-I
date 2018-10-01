@@ -63,6 +63,8 @@ int menu()
     printf("5- Listar todos los empleados de un sector\n");
     printf("6- Ordenar empleados por sector y dentro del sector por nombre\n");
     printf("7- Mostrar los datos de o los empleados que mas ganan por sector\n");
+    printf("8- Mostrar Almuerzos\n");
+    printf("9- Mostrar Almuerzo por Empleado\n");
     printf("10- Salir\n");
     printf("Ingrese opcion: ");
     fflush(stdin);
@@ -255,6 +257,19 @@ void cargarDescripcion(eSector sectores[], int tamSector, int idSector, char cad
     }
 }
 
+void cargarDescripcionComida(eComida comidas[], int tamComida, int idComida, char cadena[])
+{
+    int i;
+    for(i=0; i < tamComida; i++)
+    {
+        if( comidas[i].id == idComida)
+        {
+            strcpy(cadena, comidas[i].descripcion);
+            break;
+        }
+    }
+}
+
 void listarEmpleadosXSector(eEmpleado x[],int tam, eSector sectores[], int tamSector)
 {
     int idSector;
@@ -326,12 +341,10 @@ void harcodearEmpleados(eEmpleado x[])
         {4545, "andrea", 'f', 31000, 5, 1},
         {3232, "mauro", 'm', 27000, 5, 1},
     };
-
     for(i=0; i<7; i++)
     {
         x[i] = y[i];
     }
-
 }
 
 void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int tamSector)
@@ -369,3 +382,86 @@ void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int
     }
 }
 
+void harcodearAlmuerzos(eAlmuerzo x[])
+{
+    int i;
+    eAlmuerzo y[] =
+    {
+        {100, 1111, 2 },
+        {101, 5555, 1 },
+        {102, 4545, 3 },
+        {103, 3232, 4 },
+        {104, 1111, 1 },
+        {105, 5555, 5 },
+        {106, 4545, 2 },
+        {107, 3232, 5 },
+        {108, 1111, 2 },
+        {109, 4545, 1 },
+        {110, 3232, 1 },
+        {111, 1111, 4 },
+        {112, 5555, 3 },
+        {113, 4545, 5 },
+        {114, 3232, 2 },
+        {115, 5555, 5 },
+        {116, 4545, 2 },
+        {117, 3232, 3 },
+        {118, 1111, 2 },
+        {119, 5555, 1 },
+        {120, 4545, 3 }
+    };
+
+    for(i=0; i<21; i++)
+    {
+        x[i] = y[i];
+    }
+}
+
+
+void mostrarComida(eEmpleado emp, eComida comidas[], int tamComida)
+{
+    char descripcion[20];
+
+    cargarDescripcionComida(comidas, tamComida, emp.idSector, descripcion);
+
+    printf("%d\t %s\t\t  %s\t \n\n", emp.legajo, emp.nombre, descripcion);
+
+}
+
+void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado, eComida comidas[] , int tamComidas)
+{
+    int i,j,k;
+    char auxComida[20];
+    char nombreEmpleado[20];
+    system("cls");
+    printf("\t\tLISTADO DE ALMUERZOS\t\t\n\n");
+    printf("ID_COMIDA\t LEGAJO\t\t NOMBRE\t\t COMIDA\n\n");
+    for(i=0; i< tamAlmuerzo; i++)
+    {
+        for(j=0; j<tamEmpleado ;j++)
+        {
+            if(almuerzos[i].idEmpleado==empleados[j].legajo)
+            {
+                strcpy(nombreEmpleado, empleados[j].nombre);
+                break;
+            }
+        }
+        for(k=0; k<tamComidas ;k++)
+        {
+            if(almuerzos[i].idComida==comidas[k].id)
+            {
+                strcpy(auxComida,comidas[k].descripcion);
+                break;
+            }
+        }
+        printf("%d\t\t %d\t\t  %s\t\t %s\t\n\n",almuerzos[i].id,almuerzos[i].idEmpleado,nombreEmpleado,auxComida);
+    }
+    printf("\n\n");
+}
+
+void mostrarAlmuerzoPorEmpleados(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas,eSector sectores[], int tamSector)
+{
+    mostrarEmpleado(empleados,sectores,tamSector);
+
+
+
+}

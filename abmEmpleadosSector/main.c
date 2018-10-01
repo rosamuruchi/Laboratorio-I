@@ -5,11 +5,17 @@
 
 #include "ArrayEmployee.h"
 
+#define TAM_EMPLEADO 10
+#define TAM_SECTOR 5
+#define TAM_COMIDAS 5
+#define TAM_ALMUERZOS 21
+
 int main()
 {
 
     char seguir = 's';
-    eEmpleado lista[10];
+    eEmpleado lista[TAM_EMPLEADO];
+    eAlmuerzo listaDeAlmuerzos [TAM_ALMUERZOS];
     eSector sectores[] =
     {
         {1, "RRHH"},
@@ -19,8 +25,19 @@ int main()
         {5, "Sistemas"}
     };
 
-    inicializarEmpleados(lista, 10);
+    eComida comidas[] =
+    {
+        {1, "Milanesa"},
+        {2, "Fideos"},
+        {3, "Pizza"},
+        {4, "Sopa"},
+        {5, "Pescado"}
+    };
+
+    inicializarEmpleados(lista, TAM_EMPLEADO);
     harcodearEmpleados(lista);
+
+    harcodearAlmuerzos(listaDeAlmuerzos);
 
     do
     {
@@ -28,30 +45,34 @@ int main()
         {
 
         case 1:
-            agregarEmpleado(lista, 10, sectores, 5);
+            agregarEmpleado(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 2:
-            eliminarEmpleado(lista, 10, sectores, 5);
+            eliminarEmpleado(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             break;
         case 3:
-            modificarEmpleado(lista, 10, sectores, 5);
+            modificarEmpleado(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             break;
         case 4:
-            mostrarEmpleados(lista, 10, sectores, 5);
+            mostrarEmpleados(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 5:
-            listarEmpleadosXSector(lista, 10, sectores, 5);
+            listarEmpleadosXSector(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 6:
-            ordenarXSectorYNombre(lista, 10, sectores, 5);
+            ordenarXSectorYNombre(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 7:
-            mostrarEmpleadosMasGanadores(lista, 10, sectores, 5);
+            mostrarEmpleadosMasGanadores(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
+            break;
+        case 8:
+                mostrarAlmuerzos(listaDeAlmuerzos,TAM_ALMUERZOS,lista,TAM_EMPLEADO,comidas,TAM_COMIDAS);
+                system("pause");
             break;
         case 10:
             seguir = 'n';

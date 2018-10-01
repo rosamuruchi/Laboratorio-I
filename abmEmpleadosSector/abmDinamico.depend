@@ -37,3 +37,24 @@
 	<conio.h>
 	"ArrayEmployee.h"
 
+1538406356 source:d:\rocio_laura\abmempleadossector\arrayemployee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
+	"ArrayEmployee.h"
+
+1538405582 d:\rocio_laura\abmempleadossector\arrayemployee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1538406153 source:d:\rocio_laura\abmempleadossector\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"ArrayEmployee.h"
+

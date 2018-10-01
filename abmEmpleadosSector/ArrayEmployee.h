@@ -19,6 +19,19 @@ typedef struct
     char descripcion[20];
 } eSector;
 
+typedef struct
+{
+    int id;
+    char descripcion[20];
+} eComida;
+
+typedef struct
+{
+    int id;
+    int idEmpleado;
+    int idComida;
+
+} eAlmuerzo;
 
 void inicializarEmpleados( eEmpleado x[], int tam);
 int buscarLibre( eEmpleado x[], int tam);
@@ -35,3 +48,9 @@ void ordenarXSectorYNombre(eEmpleado x[],int tam, eSector sectores[], int tamSec
 void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int tamSector);
 void harcodearEmpleados(eEmpleado x[]);
 int menu();
+
+//COMIDAS
+void harcodearAlmuerzos(eAlmuerzo x[]);
+void cargarDescripcionComida(eComida comidas[], int tamComida, int idComida, char cadena[]);
+void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas);
+void mostrarAlmuerzoPorEmpleados(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas);
