@@ -40,8 +40,6 @@ int buscarEmpleado(eEmpleado x[], int tam, int legajo)
     int i;
     for(i=0; i < tam; i++)
     {
-
-
         if( x[i].legajo == legajo && x[i].isEmpty == OCUPADO)
         {
             indice = i;
@@ -129,7 +127,7 @@ void mostrarEmpleado(eEmpleado emp, eSector sectores[], int tamSector)
 
     cargarDescripcion(sectores, tamSector, emp.idSector, descripcion);
 
-    printf("%d\t %s\t\t %c\t %.2f\t\t %s\t \n\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, descripcion);
+    printf("%d\t%s\t\t%c\t%.2f\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, descripcion);
 
 }
 
@@ -137,7 +135,7 @@ void mostrarEmpleado(eEmpleado emp, eSector sectores[], int tamSector)
 void mostrarEmpleados(eEmpleado nomina[], int tam, eSector sectores[], int tamSector)
 {
     int i;
-    printf("LEGAJO\t NOMBRE\t\t SEXO\t SUELDO\t\t\t DESCRIPCION\n\n");
+    printf("LEGAJO\tNOMBRE\t\tSEXO\tSUELDO\t\tDESCRIPCION\n\n");
     for(i=0; i< tam; i++)
     {
         if( nomina[i].isEmpty == OCUPADO)
@@ -417,15 +415,14 @@ void harcodearAlmuerzos(eAlmuerzo x[])
 }
 
 
-void mostrarComida(eEmpleado emp, eComida comidas[], int tamComida)
+/*void mostrarComidas(eEmpleado emp,eAlmuerzo almuerzos [], int tamAlmuerzo, eComida comidas[], int tamComida)
 {
     char descripcion[20];
 
     cargarDescripcionComida(comidas, tamComida, emp.idSector, descripcion);
 
-    printf("%d\t %s\t\t  %s\t \n\n", emp.legajo, emp.nombre, descripcion);
-
-}
+    printf("%d\t\t%d\t%s\t%s\n",almuerzos.id,almuerzos.idEmpleado,emp.nombre,descripcion);
+}*/
 
 void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado, eComida comidas[] , int tamComidas)
 {
@@ -434,7 +431,7 @@ void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado emplead
     char nombreEmpleado[20];
     system("cls");
     printf("\t\tLISTADO DE ALMUERZOS\t\t\n\n");
-    printf("ID_COMIDA\t LEGAJO\t\t NOMBRE\t\t COMIDA\n\n");
+    printf("ID_COMIDA\tLEGAJO\tNOMBRE\tCOMIDA\n\n");
     for(i=0; i< tamAlmuerzo; i++)
     {
         for(j=0; j<tamEmpleado ;j++)
@@ -453,15 +450,42 @@ void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado emplead
                 break;
             }
         }
-        printf("%d\t\t %d\t\t  %s\t\t %s\t\n\n",almuerzos[i].id,almuerzos[i].idEmpleado,nombreEmpleado,auxComida);
+        printf("%d\t\t%d\t%s\t%s\n",almuerzos[i].id,almuerzos[i].idEmpleado,nombreEmpleado,auxComida);
     }
     printf("\n\n");
 }
 
 void mostrarAlmuerzoPorEmpleados(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas,eSector sectores[], int tamSector)
 {
-    mostrarEmpleado(empleados,sectores,tamSector);
+    int legajo;
+    int flag = 0;
 
+    system("cls");
 
+    mostrarEmpleados(empleados,tamEmpleado, sectores, tamSector);
+    printf("Ingrese legajo: ");
+    scanf("%d", &legajo);
+    system("cls");
+    printf("  *** Listado de almuerzos legajo %d ***\n\n", legajo);
 
+    for(int i=0; i < tamAlmuerzo; i++)
+    {
+        if( almuerzos[i].idEmpleado == legajo)
+        {
+            for(int j=0; j < tamComidas; j++)
+            {
+                if( comidas[j].id == almuerzos[i].idComida)
+                {
+                    printf("%d  %10s\n", almuerzos[i].id, comidas[j].descripcion);
+                }
+            }
+            flag = 1;
+        }
+    }
+
+    if(flag == 0)
+    {
+        printf("El empleado no presenta almuerzos");
+    }
+    printf("\n\n");
 }

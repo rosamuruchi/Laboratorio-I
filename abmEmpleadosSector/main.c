@@ -14,7 +14,7 @@ int main()
 {
 
     char seguir = 's';
-    eEmpleado lista[TAM_EMPLEADO];
+    eEmpleado listaDeEmpleados[TAM_EMPLEADO];
     eAlmuerzo listaDeAlmuerzos [TAM_ALMUERZOS];
     eSector sectores[] =
     {
@@ -34,9 +34,8 @@ int main()
         {5, "Pescado"}
     };
 
-    inicializarEmpleados(lista, TAM_EMPLEADO);
-    harcodearEmpleados(lista);
-
+    inicializarEmpleados(listaDeEmpleados, TAM_EMPLEADO);
+    harcodearEmpleados(listaDeEmpleados);
     harcodearAlmuerzos(listaDeAlmuerzos);
 
     do
@@ -45,34 +44,38 @@ int main()
         {
 
         case 1:
-            agregarEmpleado(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            agregarEmpleado(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 2:
-            eliminarEmpleado(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            eliminarEmpleado(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             break;
         case 3:
-            modificarEmpleado(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            modificarEmpleado(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             break;
         case 4:
-            mostrarEmpleados(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            mostrarEmpleados(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 5:
-            listarEmpleadosXSector(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            listarEmpleadosXSector(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 6:
-            ordenarXSectorYNombre(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            ordenarXSectorYNombre(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 7:
-            mostrarEmpleadosMasGanadores(lista, TAM_EMPLEADO, sectores, TAM_SECTOR);
+            mostrarEmpleadosMasGanadores(listaDeEmpleados, TAM_EMPLEADO, sectores, TAM_SECTOR);
             system("pause");
             break;
         case 8:
-                mostrarAlmuerzos(listaDeAlmuerzos,TAM_ALMUERZOS,lista,TAM_EMPLEADO,comidas,TAM_COMIDAS);
-                system("pause");
+            mostrarAlmuerzos(listaDeAlmuerzos,TAM_ALMUERZOS,listaDeEmpleados,TAM_EMPLEADO,comidas,TAM_COMIDAS);
+            system("pause");
+            break;
+        case 9:
+            mostrarAlmuerzoPorEmpleados (listaDeAlmuerzos,TAM_ALMUERZOS,listaDeEmpleados,TAM_EMPLEADO,comidas,TAM_COMIDAS,sectores,TAM_SECTOR);
+            system("pause");
             break;
         case 10:
             seguir = 'n';
