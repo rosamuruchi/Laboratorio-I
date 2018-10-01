@@ -336,32 +336,36 @@ void harcodearEmpleados(eEmpleado x[])
 
 void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int tamSector)
 {
-    float maxSueldo;
+    float maxSueldo=0;
     char descripcion[20];
     int flag;
     int i,j;
 
-    for(i=0; i < tamSector; i++){
-         cargarDescripcion(sectores, tamSector, sectores[i].id, descripcion);
-         printf("Sector %s\n", descripcion);
-         flag = 0;
-         for(j=0; j < tam; j++){
-            if( (x[j].sueldo > maxSueldo && x[j].isEmpty == OCUPADO && x[j].idSector == sectores[i].id) || flag == 0){
-                maxSueldo = x[j].sueldo;
-                flag = 1;
+    for(i=0; i < tamSector; i++)
+    {
+        cargarDescripcion(sectores, tamSector, sectores[i].id, descripcion);
+        printf("Sector %s\n", descripcion);
+        flag = 0;
+        for(j=0; j < tam; j++)
+        {
+            if( x[j].isEmpty == OCUPADO && x[j].idSector == sectores[i].id)
+            {
+                if( x[j].sueldo > maxSueldo || flag == 0)
+                {
+                    maxSueldo = x[j].sueldo;
+                    flag = 1;
+                }
             }
-         }
+        }
 
-          for(j=0; j < tam; j++){
-            if( x[j].sueldo == maxSueldo){
+        for(j=0; j < tam; j++)
+        {
+            if( x[j].sueldo == maxSueldo && flag== 1)
+            {
                 mostrarEmpleado(x[j], sectores, tamSector);
             }
-          }
-
-
-          printf("\n\n");
-
+        }
+        printf("\n\n");
     }
-
 }
 
