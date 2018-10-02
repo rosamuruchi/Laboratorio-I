@@ -58,15 +58,15 @@
 	<conio.h>
 	"ArrayEmployee.h"
 
-1538435064 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.c
+1538508938 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	<stdlib.h>
 	<conio.h>
+	<ctype.h>
 	"ArrayEmployee.h"
 
-1538436664 c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.h
+1538505751 c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

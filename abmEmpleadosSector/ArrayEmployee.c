@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdlib.h>
 #include <conio.h>
+#include <ctype.h>
 
 #include "ArrayEmployee.h"
 
@@ -71,12 +71,161 @@ int menu()
     return opcion;
 }
 
+int esString (char lista[])
+{
+    int i;
+    int index;
+    int limite;
+
+    limite=strlen(lista);
+
+    for (i=0; i<limite; i++)
+    {
+        index=isalpha(lista[i]);
+        if (index==0)
+        {
+            break;
+        }
+    }
+    return index;
+}
+
+int esEntero(char lista[])
+{
+    int i;
+    int index;
+    int limite;
+
+    limite=strlen(lista);
+
+    for (i=0; i<limite; i++)
+    {
+        index=isdigit(lista[i]);
+
+        if (index==0)
+        {
+            break;
+        }
+    }
+    return index;
+}
+int esCaracter (char letra)
+{
+    int index=-1;
+    if (isalpha(letra)== 0)
+    {
+        index=0;
+    }
+    return index;
+}
+
+int getString (char palabra[],char message[], char messageError[])
+{
+    char auxiliar[50];
+    int validacion=0;
+
+    printf("%s",message);
+    fflush(stdin);
+    gets(auxiliar);
+    validacion=esString(auxiliar);
+
+    while(validacion==0)
+    {
+        printf("%s",messageError);
+        fflush(stdin);
+        gets(auxiliar);
+        validacion=esString(auxiliar);
+    }
+    strcpy(palabra,auxiliar);
+
+    return validacion;
+}
+
+int getCaracter (char* caracter ,char message[], char messageError[],char lowlimit, char hilimit)
+{
+    char auxiliar;
+    int validacion=0;
+
+    printf("%s",message);
+    fflush(stdin);
+    scanf("%c",&auxiliar);
+    validacion=esCaracter(auxiliar);
+    while(validacion==0 || (lowlimit != toupper(auxiliar) && hilimit != toupper(auxiliar)))
+    {
+        printf("%s",messageError);
+        fflush(stdin);
+        scanf("%c",&auxiliar);
+        validacion=esCaracter(auxiliar);
+    }
+    *caracter=auxiliar;
+
+    return validacion;
+}
+int getEntero (int* numero,char message[], char messageError[], int lowlimit,int hilimit)
+{
+    char auxiliar[50];
+    int validacion=0;
+    int longitudDeValidacion=0;
+
+    printf("%s",message);
+    fflush(stdin);
+    gets(auxiliar);
+    validacion=esEntero(auxiliar);
+    longitudDeValidacion=strlen(auxiliar);
+
+    while((longitudDeValidacion< lowlimit && longitudDeValidacion > hilimit) || validacion == 0)
+    {
+        printf("%s",messageError);
+        fflush(stdin);
+        gets(auxiliar);
+        validacion=esEntero(auxiliar);
+        longitudDeValidacion=strlen(auxiliar);
+    }
+    *numero =atoi(auxiliar);
+    return validacion;
+}
+
+int getFlotante (float* numero,char message[], char messageError[], float lowlimit,float hilimit)
+{
+    char auxiliar[50];
+    char* validacion;
+    int retorno=-1;
+    int longitudDeValidacion=0;
+
+    printf("%s",message);
+    fflush(stdin);
+    gets(auxiliar);
+    validacion= strchr(auxiliar,'.');
+    longitudDeValidacion=strlen(auxiliar);
+
+    while((longitudDeValidacion< lowlimit && longitudDeValidacion > hilimit) || validacion !=NULL)
+    {
+        printf("%s",messageError);
+        fflush(stdin);
+        gets(auxiliar);
+        validacion=strchr(auxiliar,'.');
+        longitudDeValidacion=strlen(auxiliar);
+    }
+    *numero =atof(auxiliar);
+    retorno=0;
+    return retorno;
+}
+
 void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tamSector)
 {
     eEmpleado nuevoEmpleado;
     int indice;
     int esta;
-    int legajo;
+
+    int validarNombre;
+    int validarLegajo;
+    int validarSexo;
+    int validarSueldo;
+
+    int auxiliarLegajo;
+    char auxiliarNombre[50];
+    char auxiliarCaracter;
+    float auxiliarSueldo;
 
     indice = buscarLibre(empleados, tam);
 
@@ -86,31 +235,43 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
     }
     else
     {
-        printf("Ingrese legajo: ");
-        scanf("%d", &legajo);
-
-        esta = buscarEmpleado(empleados, tam, legajo);
-
+        validarLegajo=getEntero(&auxiliarLegajo,"Ingrese Legajo:","ERROR! Reingrese el Legajo:",0,9999);
+        if(validarLegajo!=0)
+        {
+            printf("LEGAJO: %d\n",auxiliarLegajo);
+        }
+        esta = buscarEmpleado(empleados, tam, auxiliarLegajo);
         if(esta != -1)
         {
-            printf("Existe un empleado con el legajo %d\n", legajo);
+            printf("Existe un empleado con el legajo %d\n", auxiliarLegajo);
             mostrarEmpleado( empleados[esta], sectores, tamSector);
         }
         else
         {
-            nuevoEmpleado.legajo = legajo;
+            nuevoEmpleado.legajo = auxiliarLegajo;
 
-            printf("Ingrese nombre: ");
-            fflush(stdin);
-            gets(nuevoEmpleado.nombre);
-
-            printf("Ingrese sexo: ");
-            fflush(stdin);
-            scanf("%c", &nuevoEmpleado.sexo);
-
+            validarNombre= getString(auxiliarNombre,"Ingrese Nombre:","ERROR! Reingrese su Nombre:");
+            validarSexo= getCaracter(&auxiliarCaracter,"Ingrese Sexo [F/M]:","ERROR! Reingrese su Sexo [F/M]:",'F','M');
+            validarSueldo= getFlotante(&auxiliarSueldo,"Ingrese Sueldo: ","ERROR! Reingrese su Sueldo",0.0,999999.9 );
             printf("Ingrese sueldo: ");
             fflush(stdin);
             scanf("%f", &nuevoEmpleado.sueldo);
+
+            if(validarNombre != 0)
+            {
+                strcpy(nuevoEmpleado.nombre,auxiliarNombre);
+                printf("NOMBRE: %s\n",auxiliarNombre);
+            }
+            if(validarSexo != 0)
+            {
+                nuevoEmpleado.sexo=auxiliarCaracter;
+                printf("SEXO: %c\n",toupper(auxiliarCaracter));
+            }
+            /*if(validarSueldo != 0)
+            {
+                nuevoEmpleado.sueldo=auxiliarSueldo;
+                printf("SUELDO: %f\n",auxiliarSueldo);
+            }*/
 
             nuevoEmpleado.idSector = elegirSector(sectores, 5);
 
@@ -130,7 +291,6 @@ void mostrarEmpleado(eEmpleado emp, eSector sectores[], int tamSector)
     printf("%d\t%s\t\t%c\t%.2f\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, descripcion);
 
 }
-
 
 void mostrarEmpleados(eEmpleado nomina[], int tam, eSector sectores[], int tamSector)
 {
@@ -424,7 +584,7 @@ void harcodearAlmuerzos(eAlmuerzo x[])
     printf("%d\t\t%d\t%s\t%s\n",almuerzos.id,almuerzos.idEmpleado,emp.nombre,descripcion);
 }*/
 
-void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado, eComida comidas[] , int tamComidas)
+void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado, eComida comidas[], int tamComidas)
 {
     int i,j,k;
     char auxComida[20];
@@ -434,7 +594,7 @@ void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado emplead
     printf("ID_COMIDA\tLEGAJO\tNOMBRE\tCOMIDA\n\n");
     for(i=0; i< tamAlmuerzo; i++)
     {
-        for(j=0; j<tamEmpleado ;j++)
+        for(j=0; j<tamEmpleado ; j++)
         {
             if(almuerzos[i].idEmpleado==empleados[j].legajo)
             {
@@ -442,7 +602,7 @@ void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado emplead
                 break;
             }
         }
-        for(k=0; k<tamComidas ;k++)
+        for(k=0; k<tamComidas ; k++)
         {
             if(almuerzos[i].idComida==comidas[k].id)
             {
