@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <conio.h>
+#include "utn.h"
+#include "comidas.h"
 
+#ifndef ARRAYEMPLOYEE_H_INCLUDED
+#define ARRAYEMPLOYEE_H_INCLUDED
 typedef struct
 {
     int legajo;
@@ -17,30 +17,17 @@ typedef struct
 {
     int id;
     char descripcion[20];
+    int isEmpty;
 } eSector;
 
-typedef struct
-{
-    int id;
-    char descripcion[20];
-} eComida;
+typedef struct {
+    int dia, mes, anio;
+}EFecha;
 
-typedef struct
-{
-    int id;
-    int idEmpleado;
-    int idComida;
-
-} eAlmuerzo;
-
+#endif
 //MENU
 int menu();
-int esString (char lista[]);
-int esEntero(char lista[]);
-int esCaracter (char letra);
-int getEntero (int* numero,char message[], char messageError[], int lowlimit,int hilimit);
-int getString (char palabra[], char message[], char messageError[]);
-int getCaracter (char* caracter ,char message[], char messageError[],char lowlimit, char hilimit);
+
 //EMPLEADOS
 void inicializarEmpleados( eEmpleado x[], int tam);
 void harcodearEmpleados(eEmpleado x[]);
@@ -51,18 +38,33 @@ void mostrarEmpleados(eEmpleado nomina[], int tam, eSector sectores[], int tamSe
 void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tamSector);
 void eliminarEmpleado(eEmpleado *empleados, int tam, eSector sectores[], int tamSector);
 void modificarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tamSector);
+void listarEmpleadosXSector(eEmpleado x[],int tam, eSector sectores[], int tamSector);
+void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int tamSector);
+
 //SECTOR
 int elegirSector(eSector sectores[], int tam);
 void cargarDescripcion(eSector sectores[], int tamSector, int idSector, char cadena[]);
-void listarEmpleadosXSector(eEmpleado x[],int tam, eSector sectores[], int tamSector);
 void ordenarXSectorYNombre(eEmpleado x[],int tam, eSector sectores[], int tamSector);
-void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int tamSector);
+// fecha
+/*bool IsNumber(char* szString)
+{
+ //Recorremos todos los caracteres y comprobamos que cada uno sea un número
+ for(unsigned int i=0;i<strlen(szString);i++)
+ {
+  if(!(szString[i]>='0' && szString[i]<='9')) return false;
+ }
+ return true;
+}
 
-//ALMUERZO
-void harcodearAlmuerzos(eAlmuerzo x[]);
-
-void cargarDescripcionComida(eComida comidas[], int tamComida, int idComida, char cadena[]);
-void mostrarComidas(eEmpleado emp,eAlmuerzo almuerzos [], int tamAlmuerzo, eComida comidas[], int tamComida);
-
-void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas);
-void mostrarAlmuerzoPorEmpleados(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas,eSector sectores[], int tamSector);
+int main(){
+char fecha[4];
+printf("Introduce la fecha de nacimiento(4 digitos): ");
+scanf("%s",fecha);
+if(IsNumber(fecha)==1){
+printf("\nNaciste: %i",atoi(fecha));
+}
+else{
+printf("\nError, no has introducido numeros");
+}
+return 0;
+}*/

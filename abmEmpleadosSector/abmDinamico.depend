@@ -37,26 +37,30 @@
 	<conio.h>
 	"ArrayEmployee.h"
 
-1538406356 source:d:\rocio_laura\abmempleadossector\arrayemployee.c
+1538579101 source:d:\rocio_laura\abmempleadossector\arrayemployee.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	<stdlib.h>
 	<conio.h>
+	<ctype.h>
+	"utn.h"
 	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
 
-1538405582 d:\rocio_laura\abmempleadossector\arrayemployee.h
+1538577429 d:\rocio_laura\abmempleadossector\arrayemployee.h
+	"utn.h"
+	"comidas.h"
+
+1538573580 source:d:\rocio_laura\abmempleadossector\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<conio.h>
-
-1538406153 source:d:\rocio_laura\abmempleadossector\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<conio.h>
+	"utn.h"
 	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
 
 1538508938 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.c
 	<stdio.h>
@@ -78,4 +82,50 @@
 	<string.h>
 	<conio.h>
 	"ArrayEmployee.h"
+
+1538578296 d:\rocio_laura\abmempleadossector\utn.h
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538579423 source:d:\rocio_laura\abmempleadossector\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538571850 source:d:\rocio_laura\abmempleadossector\comidas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"almuerzos.h"
+
+1538573461 d:\rocio_laura\abmempleadossector\comidas.h
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538573712 d:\rocio_laura\abmempleadossector\almuerzos.h
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538573759 source:d:\rocio_laura\abmempleadossector\almuerzos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"almuerzos.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
 

@@ -4,7 +4,10 @@
 #include <conio.h>
 #include <ctype.h>
 
+#include "utn.h"
 #include "ArrayEmployee.h"
+#include "comidas.h"
+#include "almuerzos.h"
 
 #define LIBRE 0
 #define OCUPADO 1
@@ -18,7 +21,6 @@ void inicializarEmpleados( eEmpleado x[], int tam)
         x[i].isEmpty = LIBRE;
     }
 }
-
 int buscarLibre( eEmpleado x[], int tam)
 {
     int indice = -1;
@@ -33,7 +35,6 @@ int buscarLibre( eEmpleado x[], int tam)
     }
     return indice;
 }
-
 int buscarEmpleado(eEmpleado x[], int tam, int legajo)
 {
     int indice = -1;
@@ -71,146 +72,6 @@ int menu()
     return opcion;
 }
 
-int esString (char lista[])
-{
-    int i;
-    int index;
-    int limite;
-
-    limite=strlen(lista);
-
-    for (i=0; i<limite; i++)
-    {
-        index=isalpha(lista[i]);
-        if (index==0)
-        {
-            break;
-        }
-    }
-    return index;
-}
-
-int esEntero(char lista[])
-{
-    int i;
-    int index;
-    int limite;
-
-    limite=strlen(lista);
-
-    for (i=0; i<limite; i++)
-    {
-        index=isdigit(lista[i]);
-
-        if (index==0)
-        {
-            break;
-        }
-    }
-    return index;
-}
-int esCaracter (char letra)
-{
-    int index=-1;
-    if (isalpha(letra)== 0)
-    {
-        index=0;
-    }
-    return index;
-}
-
-int getString (char palabra[],char message[], char messageError[])
-{
-    char auxiliar[50];
-    int validacion=0;
-
-    printf("%s",message);
-    fflush(stdin);
-    gets(auxiliar);
-    validacion=esString(auxiliar);
-
-    while(validacion==0)
-    {
-        printf("%s",messageError);
-        fflush(stdin);
-        gets(auxiliar);
-        validacion=esString(auxiliar);
-    }
-    strcpy(palabra,auxiliar);
-
-    return validacion;
-}
-
-int getCaracter (char* caracter ,char message[], char messageError[],char lowlimit, char hilimit)
-{
-    char auxiliar;
-    int validacion=0;
-
-    printf("%s",message);
-    fflush(stdin);
-    scanf("%c",&auxiliar);
-    validacion=esCaracter(auxiliar);
-    while(validacion==0 || (lowlimit != toupper(auxiliar) && hilimit != toupper(auxiliar)))
-    {
-        printf("%s",messageError);
-        fflush(stdin);
-        scanf("%c",&auxiliar);
-        validacion=esCaracter(auxiliar);
-    }
-    *caracter=auxiliar;
-
-    return validacion;
-}
-int getEntero (int* numero,char message[], char messageError[], int lowlimit,int hilimit)
-{
-    char auxiliar[50];
-    int validacion=0;
-    int longitudDeValidacion=0;
-
-    printf("%s",message);
-    fflush(stdin);
-    gets(auxiliar);
-    validacion=esEntero(auxiliar);
-    longitudDeValidacion=strlen(auxiliar);
-
-    while((longitudDeValidacion< lowlimit && longitudDeValidacion > hilimit) || validacion == 0)
-    {
-        printf("%s",messageError);
-        fflush(stdin);
-        gets(auxiliar);
-        validacion=esEntero(auxiliar);
-        longitudDeValidacion=strlen(auxiliar);
-    }
-    *numero =atoi(auxiliar);
-    return validacion;
-}
-
-int getFlotante (float* numero,char message[], char messageError[], float lowlimit,float hilimit)
-{
-    char auxiliar[50];
-    char* validacion;
-    int retorno=-1;
-    int longitudDeValidacion=0;
-
-    printf("%s",message);
-    fflush(stdin);
-    gets(auxiliar);
-    validacion= strchr(auxiliar,'.');
-    longitudDeValidacion=strlen(auxiliar);
-
-    while((longitudDeValidacion< lowlimit && longitudDeValidacion > hilimit) || validacion !=NULL)
-    {
-        printf("%s",messageError);
-        fflush(stdin);
-        gets(auxiliar);
-        validacion=strchr(auxiliar,'.');
-        longitudDeValidacion=strlen(auxiliar);
-    }
-    *numero =atof(auxiliar);
-    retorno=0;
-    return retorno;
-}
-
 void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tamSector)
 {
     eEmpleado nuevoEmpleado;
@@ -235,7 +96,7 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
     }
     else
     {
-        validarLegajo=getEntero(&auxiliarLegajo,"Ingrese Legajo:","ERROR! Reingrese el Legajo:",0,9999);
+        validarLegajo=getEntero(&auxiliarLegajo,"Ingrese Legajo:","ERROR! Reingrese el Legajo:",0,4);
         if(validarLegajo!=0)
         {
             printf("LEGAJO: %d\n",auxiliarLegajo);
@@ -252,10 +113,10 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
 
             validarNombre= getString(auxiliarNombre,"Ingrese Nombre:","ERROR! Reingrese su Nombre:");
             validarSexo= getCaracter(&auxiliarCaracter,"Ingrese Sexo [F/M]:","ERROR! Reingrese su Sexo [F/M]:",'F','M');
-            validarSueldo= getFlotante(&auxiliarSueldo,"Ingrese Sueldo: ","ERROR! Reingrese su Sueldo",0.0,999999.9 );
-            printf("Ingrese sueldo: ");
+            validarSueldo= getFlotante(&auxiliarSueldo,"Ingrese Sueldo: ","ERROR! Reingrese su Sueldo");
+            /*printf("Ingrese sueldo: ");
             fflush(stdin);
-            scanf("%f", &nuevoEmpleado.sueldo);
+            scanf("%f", &nuevoEmpleado.sueldo);*/
 
             if(validarNombre != 0)
             {
@@ -267,11 +128,11 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
                 nuevoEmpleado.sexo=auxiliarCaracter;
                 printf("SEXO: %c\n",toupper(auxiliarCaracter));
             }
-            /*if(validarSueldo != 0)
+            if(validarSueldo != 0)
             {
                 nuevoEmpleado.sueldo=auxiliarSueldo;
                 printf("SUELDO: %f\n",auxiliarSueldo);
-            }*/
+            }
 
             nuevoEmpleado.idSector = elegirSector(sectores, 5);
 
@@ -281,7 +142,6 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
         }
     }
 }
-
 void mostrarEmpleado(eEmpleado emp, eSector sectores[], int tamSector)
 {
     char descripcion[20];
@@ -291,7 +151,6 @@ void mostrarEmpleado(eEmpleado emp, eSector sectores[], int tamSector)
     printf("%d\t%s\t\t%c\t%.2f\t%s\n", emp.legajo, emp.nombre, emp.sexo, emp.sueldo, descripcion);
 
 }
-
 void mostrarEmpleados(eEmpleado nomina[], int tam, eSector sectores[], int tamSector)
 {
     int i;
@@ -304,7 +163,6 @@ void mostrarEmpleados(eEmpleado nomina[], int tam, eSector sectores[], int tamSe
         }
     }
 }
-
 void eliminarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tamSector)
 {
 
@@ -415,18 +273,6 @@ void cargarDescripcion(eSector sectores[], int tamSector, int idSector, char cad
     }
 }
 
-void cargarDescripcionComida(eComida comidas[], int tamComida, int idComida, char cadena[])
-{
-    int i;
-    for(i=0; i < tamComida; i++)
-    {
-        if( comidas[i].id == idComida)
-        {
-            strcpy(cadena, comidas[i].descripcion);
-            break;
-        }
-    }
-}
 
 void listarEmpleadosXSector(eEmpleado x[],int tam, eSector sectores[], int tamSector)
 {
@@ -448,17 +294,14 @@ void listarEmpleadosXSector(eEmpleado x[],int tam, eSector sectores[], int tamSe
             flag = 1;
         }
     }
-
     if(flag == 0)
     {
         printf("No hay empleados que mostrar\n\n");
     }
-
 }
 
 void ordenarXSectorYNombre(eEmpleado x[],int tam, eSector sectores[], int tamSector)
 {
-
     char descripcionI[20];
     char descripcionJ[20];
     eEmpleado auxEmpleado;
@@ -540,40 +383,6 @@ void mostrarEmpleadosMasGanadores(eEmpleado x[],int tam, eSector sectores[], int
     }
 }
 
-void harcodearAlmuerzos(eAlmuerzo x[])
-{
-    int i;
-    eAlmuerzo y[] =
-    {
-        {100, 1111, 2 },
-        {101, 5555, 1 },
-        {102, 4545, 3 },
-        {103, 3232, 4 },
-        {104, 1111, 1 },
-        {105, 5555, 5 },
-        {106, 4545, 2 },
-        {107, 3232, 5 },
-        {108, 1111, 2 },
-        {109, 4545, 1 },
-        {110, 3232, 1 },
-        {111, 1111, 4 },
-        {112, 5555, 3 },
-        {113, 4545, 5 },
-        {114, 3232, 2 },
-        {115, 5555, 5 },
-        {116, 4545, 2 },
-        {117, 3232, 3 },
-        {118, 1111, 2 },
-        {119, 5555, 1 },
-        {120, 4545, 3 }
-    };
-
-    for(i=0; i<21; i++)
-    {
-        x[i] = y[i];
-    }
-}
-
 
 /*void mostrarComidas(eEmpleado emp,eAlmuerzo almuerzos [], int tamAlmuerzo, eComida comidas[], int tamComida)
 {
@@ -584,68 +393,4 @@ void harcodearAlmuerzos(eAlmuerzo x[])
     printf("%d\t\t%d\t%s\t%s\n",almuerzos.id,almuerzos.idEmpleado,emp.nombre,descripcion);
 }*/
 
-void mostrarAlmuerzos(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado, eComida comidas[], int tamComidas)
-{
-    int i,j,k;
-    char auxComida[20];
-    char nombreEmpleado[20];
-    system("cls");
-    printf("\t\tLISTADO DE ALMUERZOS\t\t\n\n");
-    printf("ID_COMIDA\tLEGAJO\tNOMBRE\tCOMIDA\n\n");
-    for(i=0; i< tamAlmuerzo; i++)
-    {
-        for(j=0; j<tamEmpleado ; j++)
-        {
-            if(almuerzos[i].idEmpleado==empleados[j].legajo)
-            {
-                strcpy(nombreEmpleado, empleados[j].nombre);
-                break;
-            }
-        }
-        for(k=0; k<tamComidas ; k++)
-        {
-            if(almuerzos[i].idComida==comidas[k].id)
-            {
-                strcpy(auxComida,comidas[k].descripcion);
-                break;
-            }
-        }
-        printf("%d\t\t%d\t%s\t%s\n",almuerzos[i].id,almuerzos[i].idEmpleado,nombreEmpleado,auxComida);
-    }
-    printf("\n\n");
-}
 
-void mostrarAlmuerzoPorEmpleados(eAlmuerzo almuerzos [], int tamAlmuerzo, eEmpleado empleados[], int tamEmpleado,eComida comidas[], int tamComidas,eSector sectores[], int tamSector)
-{
-    int legajo;
-    int flag = 0;
-
-    system("cls");
-
-    mostrarEmpleados(empleados,tamEmpleado, sectores, tamSector);
-    printf("Ingrese legajo: ");
-    scanf("%d", &legajo);
-    system("cls");
-    printf("  *** Listado de almuerzos legajo %d ***\n\n", legajo);
-
-    for(int i=0; i < tamAlmuerzo; i++)
-    {
-        if( almuerzos[i].idEmpleado == legajo)
-        {
-            for(int j=0; j < tamComidas; j++)
-            {
-                if( comidas[j].id == almuerzos[i].idComida)
-                {
-                    printf("%d  %10s\n", almuerzos[i].id, comidas[j].descripcion);
-                }
-            }
-            flag = 1;
-        }
-    }
-
-    if(flag == 0)
-    {
-        printf("El empleado no presenta almuerzos");
-    }
-    printf("\n\n");
-}

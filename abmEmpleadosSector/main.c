@@ -3,7 +3,10 @@
 #include <string.h>
 #include <conio.h>
 
+#include "utn.h"
 #include "ArrayEmployee.h"
+#include "comidas.h"
+#include "almuerzos.h"
 
 #define TAM_EMPLEADO 10
 #define TAM_SECTOR 5
