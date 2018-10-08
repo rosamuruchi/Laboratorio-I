@@ -23,5 +23,7 @@ void cargarDescripcionComida(eComida comidas[], int tamComida, int idComida, cha
             strcpy(cadena, comidas[i].descripcion);
             break;
         }
+
+
     }
 }

@@ -113,10 +113,7 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
 
             validarNombre= getString(auxiliarNombre,"Ingrese Nombre:","ERROR! Reingrese su Nombre:");
             validarSexo= getCaracter(&auxiliarCaracter,"Ingrese Sexo [F/M]:","ERROR! Reingrese su Sexo [F/M]:",'F','M');
-            validarSueldo= getFlotante(&auxiliarSueldo,"Ingrese Sueldo: ","ERROR! Reingrese su Sueldo");
-            /*printf("Ingrese sueldo: ");
-            fflush(stdin);
-            scanf("%f", &nuevoEmpleado.sueldo);*/
+            validarSueldo= getFlotante(&auxiliarSueldo,"Ingrese Sueldo: ","ERROR! Reingrese su Sueldo:");
 
             if(validarNombre != 0)
             {
@@ -131,7 +128,7 @@ void agregarEmpleado(eEmpleado empleados[], int tam, eSector sectores[], int tam
             if(validarSueldo != 0)
             {
                 nuevoEmpleado.sueldo=auxiliarSueldo;
-                printf("SUELDO: %f\n",auxiliarSueldo);
+                printf("SUELDO: %.2f\n",auxiliarSueldo);
             }
 
             nuevoEmpleado.idSector = elegirSector(sectores, 5);

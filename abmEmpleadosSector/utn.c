@@ -16,7 +16,7 @@
 int esString (char lista[])
 {
     int i;
-    int index;
+    int index=-1;
     int limite;
 
     limite=strlen(lista);
@@ -42,7 +42,7 @@ int esEntero(char lista[])
     {
         index=isdigit(lista[i]);
 
-        if (index==0)
+        if (index==0) //cuando no es entero
         {
             break;
         }
@@ -58,6 +58,32 @@ int esCaracter (char letra)
     }
     return index;
 }
+int esFloat (char cadena[])
+{
+    int i;
+    int contador=0;
+    int flag=1;
+
+
+    for(i=0; cadena[i] != '\0'; i++)
+    {
+        if(cadena[i] == '.')
+        {
+            contador++;
+            if(contador>1)
+            {
+                flag=0;
+                break;
+            }
+        }
+        else if(cadena[i]<'0' || cadena[i]>'9')
+        {
+            flag=0;
+            break;
+        }
+    }
+    return flag;
+}
 
 int getString (char palabra[],char message[], char messageError[])
 {
@@ -69,8 +95,9 @@ int getString (char palabra[],char message[], char messageError[])
     fflush(stdin);
     gets(auxiliar);
     validacion=esString(auxiliar);
+
     longitudDeValidacion=strlen(auxiliar);
-    while(validacion==0 || longitudDeValidacion<3)
+    while(validacion==0 && longitudDeValidacion>3)
     {
         printf("%s",messageError);
         fflush(stdin);
@@ -114,7 +141,7 @@ int getEntero (int* numero,char message[], char messageError[], int lowlimit,int
     validacion=esEntero(auxiliar);
     //longitudDeValidacion=strlen(auxiliar);
 
-    while((atoi(auxiliar)< lowlimit && atoi(auxiliar) > hilimit) && validacion == 0)
+    while((atoi(auxiliar)< lowlimit && atoi(auxiliar) > hilimit) || validacion == 0)
     {
         printf("%s",messageError);
         fflush(stdin);
@@ -129,35 +156,20 @@ int getEntero (int* numero,char message[], char messageError[], int lowlimit,int
 int getFlotante (float* numero,char message[], char messageError[])
 {
     char cadena [50];
-    int longitud;
-    int i;
-    int contador=0;
-    int retorno=-1;
-    int validaEntero;
+    int validaFloat;
 
     printf("%s",message);
     fflush(stdin);
     gets(cadena);
-    longitud= strlen(cadena);
-    validaEntero=esEntero(cadena);
+    validaFloat=esFloat(cadena);
 
-    for(i=0; i<longitud; i++)
-    {
-        if(cadena[i] == '.')
-        {
-            contador++;
-        }
-    }
-    while(validaEntero == 0 && contador>1)
+    while(validaFloat == 0)
     {
         printf("%s",messageError);
         fflush(stdin);
         gets(cadena);
-        validaEntero=esEntero(cadena);
-        retorno=0;
-        contador=0;
-
+        validaFloat=esFloat(cadena);
     }
-*numero =atof(cadena);
-return retorno;
+    *numero =atof(cadena);
+    return validaFloat;
 }
