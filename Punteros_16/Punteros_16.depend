@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1540213122 source:d:\laura_rocio\punteros_16\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pendrive.h"
+
+1540214703 d:\laura_rocio\punteros_16\pendrive.h
+
+1540214799 source:d:\laura_rocio\punteros_16\pendrive.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"pendrive.h"
+
