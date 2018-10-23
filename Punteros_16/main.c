@@ -20,7 +20,6 @@ int main()
         case 2:
             mostrarPendrive(&pendrive);
             system("pause");
-
             break;
         case 3:
             seguir = 'n';

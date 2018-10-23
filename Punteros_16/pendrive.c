@@ -2,8 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #include "pendrive.h"
+#include "utn.h"
+
 #define LIBRE 0
 #define OCUPADO 1
 
@@ -94,6 +95,16 @@ int cargarPendriveParam(ePendrive* pen, int codigo, char marca[], int capacidad,
 int cargarPendrive (ePendrive* pen)
 {
     int index;
+    int auxCodigo;
+    char auxMarca[50];
+    float auxPrecio;
+    int auxCapacidad;
+
+    int validacionCodigo;
+    int validacionPrecio;
+    int validacionMarca;
+    int validacionCapacidad;
+    int agregarPendrive;
 
     if(pen==NULL)
     {
@@ -102,7 +113,11 @@ int cargarPendrive (ePendrive* pen)
     }
     else
     {
-        printf("\n\nIngrese Codigo:");
+        validacionCodigo= getEntero(&auxCodigo,"Ingrese Codigo: ","ERROR! Reingrese Codigo: ",1,1000);
+        validacionMarca= getString(auxMarca,"Ingrese Marca: ","ERROR! Reingrese Marca: ");
+        validacionCapacidad= getEntero(&auxCapacidad,"Ingrese Capacidad: ","ERROR! Reingrese Capacidad: ",1,1000);
+        validacionPrecio= getFlotante(&auxPrecio,"Ingrese Precio: ","ERROR! Reingrese Precio: ");
+        /*printf("\n\nIngrese Codigo:");
         scanf("%d", &pen->codigo);
 
         printf("Ingrese Marca de Pendrive:");
@@ -113,9 +128,23 @@ int cargarPendrive (ePendrive* pen)
         scanf("%d", &pen->capacidad);
 
         printf("Ingrese Precio:");
-        scanf("%f", &pen->precio);
+        scanf("%f", &pen->precio);*/
 
-        index=1;
+        if(validacionCodigo!=0 && validacionMarca!=0 && validacionCapacidad!=0 && validacionPrecio!=0)
+        {
+            printf("Ingreso Correcto!\n");
+        }
+
+        agregarPendrive=cargarPendriveParam(pen,auxCodigo,auxMarca,auxCapacidad,auxPrecio);
+        if(agregarPendrive== -1)
+        {
+            printf("No se pudo Cargar el Empleado!\n");
+        }
+        else
+        {
+            index=1;
+            printf("Empleado Cargado!\n");
+        }
     }
     return index;
 }
@@ -134,3 +163,22 @@ void mostrarPendrive(ePendrive* pen)
 
     }
 }
+
+ /*ePendrive* new_Pendrive()
+ {
+
+     ePendrive* nuevoPendrive;
+
+     nuevoPendrive = (ePendrive*) malloc(sizeof(ePendrive));
+
+     if(nuevoPendrive != NULL){
+        nuevoPendrive->codigo = 0;
+        strcpy(nuevoPendrive->marca, "");
+       nuevoPendrive->capacidad = 0;
+       nuevoPendrive->precio = 0;
+     }
+
+ return nuevoPendrive;
+
+ }*/
+
