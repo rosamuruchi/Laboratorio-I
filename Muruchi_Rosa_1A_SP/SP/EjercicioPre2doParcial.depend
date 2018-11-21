@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1542812214 source:d:\rocio_laura\muruchi_rosa_1a_sp\sp\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Empleado.h"
+	"LinkedList.h"
+
+1542812185 d:\rocio_laura\muruchi_rosa_1a_sp\sp\empleado.h
+	"LinkedList.h"
+
+1542805765 source:d:\rocio_laura\muruchi_rosa_1a_sp\sp\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Empleado.h"
+
+1542807234 d:\rocio_laura\muruchi_rosa_1a_sp\sp\linkedlist.h
+
+1542807127 source:d:\rocio_laura\muruchi_rosa_1a_sp\sp\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1542812517 source:d:\rocio_laura\muruchi_rosa_1a_sp\sp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Empleado.h"
+	"LinkedList.h"
+	"Parser.h"
+
+1542801520 d:\rocio_laura\muruchi_rosa_1a_sp\sp\parser.h
+	"LinkedList.h"
+
