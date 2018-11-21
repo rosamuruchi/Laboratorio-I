@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1542191374 source:c:\users\rocio\desktop\tp3_linkenlist\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+
+1542191374 c:\users\rocio\desktop\tp3_linkenlist\controller.h
+	"LinkedList.h"
+
+1542497862 c:\users\rocio\desktop\tp3_linkenlist\linkedlist.h
+
+1542191374 c:\users\rocio\desktop\tp3_linkenlist\employee.h
+	"LinkedList.h"
+	"utn.h"
+
+1542191374 c:\users\rocio\desktop\tp3_linkenlist\utn.h
+
+1542191374 c:\users\rocio\desktop\tp3_linkenlist\parser.h
+	"LinkedList.h"
+
+1542191374 source:c:\users\rocio\desktop\tp3_linkenlist\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<conio.h>
+	"parser.h"
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+
+1542498464 source:c:\users\rocio\desktop\tp3_linkenlist\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"utn.h"
+
