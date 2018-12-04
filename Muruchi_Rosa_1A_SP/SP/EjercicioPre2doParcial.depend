@@ -34,3 +34,50 @@
 1542801520 d:\rocio_laura\muruchi_rosa_1a_sp\sp\parser.h
 	"LinkedList.h"
 
+1543443671 source:c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Empleado.h"
+	"LinkedList.h"
+
+1543433862 c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\empleado.h
+	"LinkedList.h"
+
+1543434379 c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\linkedlist.h
+
+1543430994 source:c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1543444645 source:c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Empleado.h"
+	"LinkedList.h"
+	"Parser.h"
+	"Controller.h"
+
+1543433459 c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\parser.h
+	"LinkedList.h"
+
+1543433577 source:c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Empleado.h"
+
+1542191374 c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\controller.h
+	"LinkedList.h"
+
+1543444645 source:c:\users\rocio\downloads\clase_laboratorio-master\muruchi_rosa_1a_sp\sp\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"LinkedList.h"
+	"Empleado.h"
+	"parser.h"
+

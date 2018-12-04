@@ -5,6 +5,7 @@
 #include "Empleado.h"
 #include "LinkedList.h"
 #include "Parser.h"
+#include "Controller.h"
 
 int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados);
 
@@ -17,14 +18,23 @@ int main()
     listaEmpleados=ll_newLinkedList();
 
     // Leer empleados de archivo data.csv
-    if(parser_parseEmpleados("data.csv",listaEmpleados)==1)
+    if(controller_loadFromText("data.csv",listaEmpleados)==0)
     {
+
         // Calcular sueldos
         printf("Calculando sueldos de empleados\n");
-        ll_map(listaEmpleados,em_calcularSueldo);
+        if(ll_map(listaEmpleados,em_calcularSueldo)==0)
+        {
+            printf("Mapeo correcto!\n");
+        }
+        else
+        {
+            printf("Incorrecto mapeo!");
+        }
 
         // Generar archivo de salida
-        if(generarArchivoSueldos("sueldos.csv",listaEmpleados)==1)
+        //if(generarArchivoSueldos("info.csv",listaEmpleados)==1)
+        if(generarArchivoSueldos("info.csv",listaEmpleados)==0)
         {
             printf("Archivo generado correctamente\n");
         }
@@ -32,7 +42,7 @@ int main()
             printf("Error generando archivo\n");
     }
     else
-        printf("Error leyando empleados\n");
+        printf("Error leyendo empleados\n");
 
 
     return 0;
@@ -41,10 +51,10 @@ int main()
 int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados)
 {
     FILE* miArchivo;
-    char buffer[500]= {};
-    char bufferAux[500]= {};
-
-    int i;
+    Empleado* EmpleadoAux;
+    //char buffer[500]= {};
+    //char bufferAux[500]= {};
+    int i,retorno=-1;
 
     if(listaEmpleados!=NULL)
     {
@@ -54,7 +64,11 @@ int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados)
         {
             for(i=0; i<ll_len(listaEmpleados); i++)
             {
-                //funcion que escribe el int en una string
+                EmpleadoAux=(Empleado*)ll_get(listaEmpleados,i);
+
+                fprintf(miArchivo,"%d, %s, %d, %d\n",EmpleadoAux->id,EmpleadoAux->nombre,EmpleadoAux->horasTrabajadas,EmpleadoAux->sueldo);//eEmpleados_getId(listaEmpleados,i),eEmpleados_getNombre(listaEmpleados,i),eEmpleados_getHoras(listaEmpleados,i),eEmpleados_getSueldo(listaEmpleados,i));
+
+               /* //funcion que escribe el int en una string
                 sprintf(bufferAux,"%d",eEmpleados_getId(listaEmpleados,i));
                 //strcpy para vaciar el buffer en la nueva iteración
                 strcpy(buffer,bufferAux);
@@ -65,13 +79,14 @@ int generarArchivoSueldos(char* fileName,LinkedList* listaEmpleados)
                 strcat(buffer,bufferAux);
                 strcat(buffer,", ");
                 sprintf(bufferAux,"%d",eEmpleados_getSueldo(listaEmpleados,i));
-                strcat(buffer,", ");
-                strcat(buffer,eEmpleados_getHoras(listaEmpleados,i));
-                fprintf(miArchivo,"\n%s",buffer);
+                strcat(buffer,bufferAux);
+                //strcat(buffer,"\n");
+                fprintf(miArchivo,buffer);*/
 
             }
+            retorno=0;
             fclose(miArchivo);
         }
     }
-    return 1;
+    return retorno;
 }

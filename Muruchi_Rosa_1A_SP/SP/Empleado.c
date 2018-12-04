@@ -6,29 +6,38 @@
 
 void em_calcularSueldo(void* p)
 {
+    Empleado* empleadoAux;
     int sueldo;
+    int horasTrabajadas;
 
-    if(getHoras(p)<176)
+    empleadoAux= (Empleado*)p; //castepo p
+
+    if(employee_getHorasTrabajadas(p,&horasTrabajadas)==-1)
     {
-        sueldo=getHoras(p)*180;
-        employee_setSueldo(p,sueldo);
+        printf("Error!");
     }
     else
     {
-        if(getHoras(p)>177 && getHoras(p)<208)
+        if(horasTrabajadas<=176)
         {
-            sueldo=getHoras(p)*270;
-        employee_setSueldo(p,sueldo);
+            sueldo=horasTrabajadas *180;
         }
         else
         {
-            if(getHoras(p)>209 && getHoras(p)<240)
+            if(horasTrabajadas>=177 && horasTrabajadas<=208)
             {
-                sueldo=getHoras(p)*360;
-                employee_setSueldo(p,sueldo);
+                sueldo=horasTrabajadas *270;
+            }
+            else
+            {
+                if(horasTrabajadas>=209 && horasTrabajadas<=240)
+                {
+                    sueldo=horasTrabajadas *360;
+                }
             }
         }
     }
+    employee_setSueldo(empleadoAux,sueldo);
 }
 
 int getHoras(void* item)
@@ -247,7 +256,6 @@ int eEmpleados_getSueldo(LinkedList* this, int index)
         auxiliar=ll_get(this, index);
         retorno=auxiliar->sueldo;
     }
-
     return retorno;
 }
 
@@ -265,5 +273,27 @@ int eEmpleados_getHoras(LinkedList* this, int index)
         retorno=auxiliar->horasTrabajadas;
     }
 
+    return retorno;
+}
+
+int employee_listarEmpleado(LinkedList* pArrayListEmployee)
+{
+    Empleado* empleado;
+    int retorno=-1;
+    int i,limite;
+
+    if(pArrayListEmployee!=NULL)
+    {
+        limite=ll_len(pArrayListEmployee);
+        for(i=0; i<limite; i++)
+        {
+            empleado=ll_get(pArrayListEmployee,i);
+            if(empleado!=NULL)
+            {
+                employee_print(empleado);
+                retorno=0;
+            }
+        }
+    }
     return retorno;
 }

@@ -17,6 +17,10 @@ int Empleado_getHoras(LinkedList* this, int index);
 Empleado* employee_new();
 Empleado* employee_newParametros(char* idStr,char* nombreStr,char* horasTrabajadasStr,char* sueldoStr);
 void employee_print(Empleado* this);
+int employee_listarEmpleado(LinkedList* pArrayListEmployee);
+
+
+void employee_print(Empleado* this);
 void employee_delete(Empleado* this);
 int employee_setId(Empleado* this,int id);
 int employee_getId(Empleado* this,int* id);

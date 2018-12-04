@@ -9,7 +9,7 @@
  * \param first Es el Nodo con el cual se inicializa la variable itNode
  * \return Retorna 0 si this y first no son NULL sino retorna -1
 */
-static int startIterator(LinkedList* this,Node* first)
+/*static int startIterator(LinkedList* this,Node* first)
 {
     int retorno = -1;
 
@@ -19,14 +19,14 @@ static int startIterator(LinkedList* this,Node* first)
         retorno = 0;
     }
     return retorno;
-}
+}*/
 
 /***
  * \brief Resetea la variable itNode (iterador) seteandola en NULL
  * \param this Es el Linkedlist del cual se realiza el set del itNode
  * \return Retorna 0 si this es diferente a NULL sino retorna -1
 */
-static int resetIterator(LinkedList* this)
+/*static int resetIterator(LinkedList* this)
 {
     int retorno = -1;
 
@@ -36,14 +36,14 @@ static int resetIterator(LinkedList* this)
         retorno = 0;
     }
     return retorno;
-}
+}*/
 
 /**
  * \brief Retorna el elemento del itNode (iterador) y mueve un lugar el itNode
  * \param this Es el Linkedlist que recibe para recorrer
  * \return Retorna el elemento si el itNode es diferente a NULL sino retorna NULL
 */
-static void* getNext(LinkedList* this)
+/*static void* getNext(LinkedList* this)
 {
     void* retorno = NULL;
 
@@ -53,7 +53,7 @@ static void* getNext(LinkedList* this)
         this->itNode = this->itNode->pNextNode;
     }
     return retorno;
-}
+}*/
 
 /** \brief  Obtiene un nodo de la lista
  *
@@ -86,6 +86,7 @@ LinkedList* ll_newLinkedList(void)
         this->pFirstNode = NULL;
     }
     return this;
+
 }
 
 int ll_len(LinkedList* this)
@@ -539,23 +540,15 @@ int ll_map(LinkedList* this, int (*pFunc)(void*))
 
     if(this != NULL && pFunc != NULL)
     {
-        startIterator(this,this->pFirstNode);
         for(i=0;i<ll_len(this);i++)
         {
-            pElement = getNext(this);
+            pElement = ll_get(this,i);
             if(pElement != NULL)
             {
-                if(!pFunc(pElement))
-                {
-                    retorno = 0;
-                }
-                else
-                {
-                    break;
-                }
+                pFunc(pElement);
+                retorno=0;
             }
         }
-        resetIterator(this);
     }
     return retorno;
 }
