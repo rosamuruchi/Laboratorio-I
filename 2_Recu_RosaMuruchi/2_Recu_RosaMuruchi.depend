@@ -58,3 +58,62 @@
 	"LinkedList.h"
 	"clientes.h"
 
+1544576256 source:c:\users\rocio\desktop\2_recu_rosamuruchi\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"clientes.h"
+	"LinkedList.h"
+
+1544580944 c:\users\rocio\desktop\2_recu_rosamuruchi\clientes.h
+	"LinkedList.h"
+	"utn.h"
+
+1544005302 c:\users\rocio\desktop\2_recu_rosamuruchi\linkedlist.h
+
+1544005302 c:\users\rocio\desktop\2_recu_rosamuruchi\utn.h
+
+1544005302 source:c:\users\rocio\desktop\2_recu_rosamuruchi\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"LinkedList.h"
+	"clientes.h"
+	"parser.h"
+
+1544005302 c:\users\rocio\desktop\2_recu_rosamuruchi\controller.h
+	"LinkedList.h"
+
+1544005302 c:\users\rocio\desktop\2_recu_rosamuruchi\parser.h
+	"LinkedList.h"
+
+1544005302 source:c:\users\rocio\desktop\2_recu_rosamuruchi\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1544576051 source:c:\users\rocio\desktop\2_recu_rosamuruchi\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"LinkedList.h"
+	"clientes.h"
+	"parser.h"
+
+1544576278 source:c:\users\rocio\desktop\2_recu_rosamuruchi\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"clientes.h"
+
+1544005302 source:c:\users\rocio\desktop\2_recu_rosamuruchi\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+

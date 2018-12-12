@@ -29,7 +29,7 @@ int main()
             controller_loadFromText("clientes.csv",listaClientes);
             break;
         case 2:
-
+            listarClientes(listaClientes);
             break;
         case 3:
             ListarAbonos(listaClientes);

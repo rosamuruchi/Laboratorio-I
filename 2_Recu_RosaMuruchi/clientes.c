@@ -15,6 +15,14 @@ eClientes* newClientes()
 {
     eClientes* aux;
     aux=(eClientes*)malloc(sizeof(eClientes));
+    if(aux!=NULL)
+    {
+        aux->id=0;
+        strcpy(aux->nombre, "");
+        strcpy(aux->sexo, "");
+        strcpy(aux->numeroTelefono, "");
+        aux->importe=0;
+    }
     return aux;
 }
 
@@ -33,101 +41,132 @@ eClientes* newParametros(char* id,char* nombre, char* sexo, char* numero, char* 
     return clientes;
 }
 
-int clientes_set_id(eClientes* this, int id)
+int clientes_set_id(eClientes* lista, int id)
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        this->id=id;
+        lista->id=id;
         set=0;
     }
     return set;
 }
 
-int clientes_set_nombre(eClientes* this, char nombre[])
+int clientes_set_nombre(eClientes* lista, char* nombre)
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        strcpy(this->nombre,nombre);
+        strcpy(lista->nombre,nombre);
         set=0;
     }
     return set;
 }
 
-int clientes_set_sexo(eClientes* this, char sexo[])
+int clientes_set_sexo(eClientes* lista, char* sexo)
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        strcpy(this->sexo,sexo);
+        strcpy(lista->sexo,sexo);
         set=0;
 
     }
     return set;
 }
 
-int clientes_set_telefono(eClientes* this, char telefono[])
+int clientes_set_telefono(eClientes* lista, char telefono[])
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        strcpy(this->numeroTelefono,telefono);
+        strcpy(lista->numeroTelefono,telefono);
         set=0;
     }
     return set;
+
 }
 
-int clientes_set_importe(eClientes* this, int importe)
+int clientes_set_importe(eClientes* lista, int importe)
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        this->importe=importe;
+        lista->importe=importe;
         set=0;
     }
     return set;
 }
 ////////////////////////////////////////////
-int clientes_get_id(eClientes* this)
+int clientes_get_id(eClientes* lista,int* id)
 {
-    return this->id;
+    int retorno=-1;
+    if(lista!=NULL)
+    {
+        *id=lista->id;
+        retorno=0;
+    }
+    return retorno;
 }
 
-char* clientes_get_sexo(eClientes* this)
+int clientes_get_sexo(eClientes* lista,char* sexo)
 {
-    return this->sexo;
+    int retorno=-1;
+    if(lista!=NULL)
+    {
+        strcpy(sexo,lista->sexo);
+        retorno=0;
+    }
+    return retorno;
 }
 
-char* cleintes_get_nombre(eClientes* this)
+int clientes_get_nombre(eClientes* lista,char* nombre)
 {
-    return this->nombre;
+    int retorno=-1;
+    if(lista!=NULL)
+    {
+        strcpy(nombre,lista->nombre);
+        retorno=0;
+    }
+    return retorno;
 }
 
-char* cleintes_get_telefono(eClientes* this)
+int clientes_get_telefono(eClientes* lista,char* telefono)
 {
-    return this->numeroTelefono;
+    int retorno=-1;
+    if(lista!=NULL)
+    {
+        strcpy(telefono,lista->numeroTelefono);
+        retorno=0;
+    }
+    return retorno;
 }
 
-int clientes_get_importe(eClientes* this)
+int clientes_get_importe(eClientes* lista,int* importe)
 {
-    return this->importe;
+    int retorno=-1;
+    if(lista!=NULL)
+    {
+        *importe=lista->importe;
+        retorno=0;
+    }
+    return retorno;
 }
 
 
 ///////////////////////
 
-int abono_set_id(eAbono* this, int id)
+int abono_set_id(eAbono* lista, int id)
 {
-    return this->id=id;
+    return lista->id=id;
 }
 
-int abono_set_tipo(eAbono* this, int tipo)
+int abono_set_tipo(eAbono* lista, int tipo)
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        this->tipo=tipo;
+        lista->tipo=tipo;
         set=0;
     }
     return set;
@@ -144,12 +183,12 @@ int abono_set_idCliente(eAbono* lista, int idCliente)
     return set;
 }
 
-int abono_set_ImporteFinal(eAbono* this, int importe)
+int abono_set_ImporteFinal(eAbono* lista, int importe)
 {
     int set=-1;
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        this->importeFinal=importe;
+        lista->importeFinal=importe;
         set=0;
     }
     return set;
@@ -176,23 +215,20 @@ int abono_get_tipo(eAbono* lista)
 }
 
 ////////////////////////////////////////
-void completarNumeros(LinkedList* this)
+void completarNumeros(LinkedList* lista)
 {
     int i;
     int contador;
     eClientes* aux1;
     eAbono* aux2;
     // eAbono* abono;
-
-
-
-    if(this!=NULL)
+    if(lista!=NULL)
     {
-        for(i=0; i<ll_len(this); i++)
+        for(i=0; i<ll_len(lista); i++)
         {
-            aux2=ll_get(this,i);
-            aux1=ll_get(this,i);
-            if(comprobarSiElNumeroEsRepetido(this,aux1)==0)
+            aux2=ll_get(lista,i);
+            aux1=ll_get(lista,i);
+            if(comprobarIdClienteRepetido(lista,aux1)==0)
             {
                 contador++;
             }
@@ -217,9 +253,9 @@ void completarNumeros(LinkedList* this)
 }
 
 
-void calcularImporteFinal (LinkedList* this)
+void calcularImporteFinal (LinkedList* lista)
 {
-    int i;
+    /*int i;
     int j;
     int contador;
     int importe;
@@ -227,13 +263,13 @@ void calcularImporteFinal (LinkedList* this)
     eAbono* aux;
     eClientes* listaclientes;
 
-    for(i=0; i<ll_len(this); i++)
+    for(i=0; i<ll_len(lista); i++)
     {
-        aux=ll_get(this,i);
-        listaclientes=ll_get(this,i);
+        aux=ll_get(lista,i);
+        listaclientes=ll_get(lista,i);
         if(aux!=NULL)
         {
-            for(j=1; j<ll_len(this); j++)
+            for(j=1; j<ll_len(lista); j++)
             {
                 contador=0;
                 if(abono_get_idCliente(aux)>0)
@@ -264,7 +300,7 @@ void calcularImporteFinal (LinkedList* this)
             abono_set_ImporteFinal(aux,importe);
 
         }
-    }
+    }*/
 }
 
 int compararNumeros(void* numero1, void* numero2)
@@ -284,10 +320,41 @@ int compararNumeros(void* numero1, void* numero2)
     }
     return retorno;
 }
+void clientes_lista (eClientes* lista)
+{
+    int auxId;
+    char auxNombre[50];
+    char auxTelefono[50];
+    char sexo[1];
+    int auxImporte;
+
+    if(lista!=NULL)
+    {
+        if(clientes_get_id(lista,&auxId)==0 && clientes_get_nombre(lista,auxNombre)==0 && clientes_get_telefono(lista,auxTelefono)==0 && clientes_get_importe(lista,&auxImporte)==0 && clientes_get_sexo(lista,sexo)==0)
+        {
+            printf("%d\t%s\t\t%s\t\t%s\t\t%d\n",lista->id,lista->nombre,lista->sexo,lista->numeroTelefono,lista->importe);
+        }
+    }
+}
+
+void listarClientes (LinkedList* lista)
+{
+    eClientes* clientes;
+    int i;
+    if(lista!=NULL)
+    {
+        printf("ID  NOMBRE  SEXO  TELEFONO  IMPORTE\n");
+        for(i=0; i<ll_len(lista); i++)
+        {
+            clientes=ll_get(lista,i);
+            clientes_lista(clientes);
+        }
+    }
+}
 
 void ListarAbonos (LinkedList* lista)
 {
-    eAbono* abono;
+   /* eAbono* abono;
     eClientes* cliente;
     int i,j,limite;
 
@@ -308,27 +375,32 @@ void ListarAbonos (LinkedList* lista)
             }
 
         }
-    }
+    }*/
 }
 
-int comprobarSiElNumeroEsRepetido(LinkedList* repetido, eClientes* aux)
+int comprobarIdClienteRepetido(LinkedList* repetido, char* idCliente)
 {
     int retorno=-1;
     eClientes* auxiliar;
+    int auxIdCliente;
     int i;
     for(i=0; i<ll_len(repetido); i++)
     {
         auxiliar=ll_get(repetido,i);
-        if(cleintes_get_telefono(auxiliar)==cleintes_get_telefono(aux))
+        if(clientes_get_id(auxiliar,&auxIdCliente)==0)
         {
-            retorno=0;
-            break;
+            if(strcmp(idCliente,auxIdCliente)==0)
+            {
+                retorno=0;
+                break;
+            }
         }
+
     }
     return retorno;
 }
 
-int buscarNumeroRepetido(LinkedList* this)
+int buscarNumeroRepetido(LinkedList* lista)
 {
     int retorno=-1;
     int i;
@@ -339,18 +411,18 @@ int buscarNumeroRepetido(LinkedList* this)
     eClientes* aux;
     LinkedList* repetidos;
 
-    if(this!=NULL )
+    if(lista!=NULL )
     {
-        for(i=0; i<ll_len(this)-1; i++)
+        for(i=0; i<ll_len(lista)-1; i++)
         {
-            aux=ll_get(this,i);
-            if(comprobarSiElNumeroEsRepetido(this,aux)==0)
+            aux=ll_get(lista,i);
+            if(comprobarSiElNumeroEsRepetido(lista,aux)==0)
             {
                 flag=0;
-                for(j=i+1; j<ll_len(this); j++)
+                for(j=i+1; j<ll_len(lista); j++)
                 {
-                    numero=ll_get(this,j);
-                    if(cleintes_get_telefono(aux)==cleintes_get_telefono(numero))
+                    numero=ll_get(lista,j);
+                    //if(cleintes_get_telefono(aux)==cleintes_get_telefono(numero))
                     {
                         contador++;
                         //ll_add(repetidos,numero);
