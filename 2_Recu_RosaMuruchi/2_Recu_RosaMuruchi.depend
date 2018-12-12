@@ -117,3 +117,62 @@
 	<ctype.h>
 	"utn.h"
 
+1544623630 source:d:\2_recu_rosamuruchi\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"clientes.h"
+	"LinkedList.h"
+
+1544625666 d:\2_recu_rosamuruchi\clientes.h
+	"LinkedList.h"
+	"utn.h"
+
+1544582020 d:\2_recu_rosamuruchi\linkedlist.h
+
+1544582020 d:\2_recu_rosamuruchi\utn.h
+
+1544582020 source:d:\2_recu_rosamuruchi\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"LinkedList.h"
+	"clientes.h"
+	"parser.h"
+
+1544582020 d:\2_recu_rosamuruchi\controller.h
+	"LinkedList.h"
+
+1544582020 d:\2_recu_rosamuruchi\parser.h
+	"LinkedList.h"
+
+1544582020 source:d:\2_recu_rosamuruchi\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1544582020 source:d:\2_recu_rosamuruchi\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"clientes.h"
+
+1544582020 source:d:\2_recu_rosamuruchi\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+
+1544625316 source:d:\2_recu_rosamuruchi\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Controller.h"
+	"LinkedList.h"
+	"clientes.h"
+	"parser.h"
+

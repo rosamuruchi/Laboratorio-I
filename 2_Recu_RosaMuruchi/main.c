@@ -9,17 +9,19 @@
 int main()
 {
     LinkedList* listaClientes;
+    LinkedList* listaAbonos;
     listaClientes=ll_newLinkedList();
-
+    listaAbonos=ll_newLinkedList();
 
     int opcion=0;
     do
     {
         printf("\n1- Cargar archivo");
-        printf("\n2- CREAR Y COMPLETAR");
-        printf("\n3- MOSTRAR LISTA");
-        printf("\n4- Generar");
-        printf("\n5- Salir");
+        printf("\n2- Lista Cargada");
+        printf("\n3- Crear y completar Abono");
+        printf("\n4- Lista Abonos");
+        printf("\n5- Generar Archivo abonos.csv y abonos.bin");
+        printf("\n6- Salir");
         printf("\nIngrese una opcion: ");
         scanf("%d",&opcion);
 
@@ -32,16 +34,21 @@ int main()
             listarClientes(listaClientes);
             break;
         case 3:
-            ListarAbonos(listaClientes);
+            crearListaAbono(listaAbonos);
             break;
         case 4:
-            controller_saveAsText("abonos.csv",listaClientes);
-            controller_saveAsBinary("abonos.bin",listaClientes);
+            ListarAbonos(listaAbonos,listaClientes);
             break;
-
+        case 5:
+            controller_saveAsText("abonos.csv",listaAbonos);
+            controller_saveAsBinary("abonos.bin",listaAbonos);
+            break;
+        case 6:
+            break;
         }
-        system("pause");
-        //system("cls");
-    }while(opcion!=6);
+        //system("pause");
+        system("cls");
+    }
+    while(opcion!=6);
     return 0;
 }

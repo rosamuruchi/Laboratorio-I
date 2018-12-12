@@ -32,8 +32,13 @@ int clientes_get_nombre(eClientes* lista,char* nombre);
 int clientes_get_telefono(eClientes* lista,char* telefono);
 int clientes_get_importe(eClientes* lista,int* importe);
 
-void completarNumeros(LinkedList* this);
-void ListarAbonos (LinkedList* lista);
+eAbono* new_abono();
+LinkedList* crearListaAbono(LinkedList* this);
+int employeeSortById(void* empleadoA, void* empleadoB);
+int abono_getId(eAbono* this,int* id);
+void completarNumeros(LinkedList* lista, LinkedList* abono);
+void ListarAbonos (LinkedList* listaAbono, LinkedList* listaCliente);
 void listarClientes (LinkedList* lista);
 void clientes_lista (eClientes* lista);
-int comprobarIdClienteRepetido(LinkedList* repetido, char* idCliente);
+int comprobarIdClienteRepetido(LinkedList* repetido, eClientes* lista);
+int calcularImporteFinal(LinkedList* lista, LinkedList* abono);
