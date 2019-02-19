@@ -28,7 +28,7 @@ int controller_loadFromText(char* path, LinkedList* pArrayListEmployee)
             {
                 retorno=0;
                 printf("Se Cargo exitosamente!\n");
-                system("pause");
+                //system("pause");
             }
         }
         else
@@ -147,7 +147,7 @@ int controller_ListEmployee(LinkedList* pArrayListEmployee)
 int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 {
     FILE* archivoTexto;
-    eClientes *emp;
+    eAbono *fp;
     int retorno=-1;
     int i;
 
@@ -160,13 +160,14 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
         }
         else
         {
+            fprintf(archivoTexto, "Id,Tipo,Id Cliente,Importe final\n");
             for(i=0; i < ll_len(pArrayListEmployee); i++)
             {
-                emp = ll_get(pArrayListEmployee, i);
-                fprintf(archivoTexto, "%d,%s,%s,%s,%d\n", emp->id, emp->nombre, emp->sexo, emp->numeroTelefono,emp->importe);
+                fp = ll_get(pArrayListEmployee, i);
+                fprintf(archivoTexto, "%d,%d,%d,%.2f\n", fp->id, fp->tipo, fp->idCliente, fp->importeFinal);
             }
             fclose(archivoTexto);
-            printf("El archivo se guardo exitosamente!\n");
+            printf("El archivo Texto se guardo exitosamente!\n");
             retorno=0;
         }
     }
@@ -183,7 +184,7 @@ int controller_saveAsText(char* path, LinkedList* pArrayListEmployee)
 int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
 {
     FILE* archivoBin;
-    eClientes* empleado;
+    eAbono* fp;
     int retorno=-1;
     int i;
 
@@ -195,15 +196,15 @@ int controller_saveAsBinary(char* path, LinkedList* pArrayListEmployee)
         {
             for(i=0; i< ll_len(pArrayListEmployee); i++)
             {
-                empleado =(eClientes*) ll_get(pArrayListEmployee,i);
-                if(empleado!=NULL)
+                fp =(eAbono*) ll_get(pArrayListEmployee,i);
+                if(fp!=NULL)
                 {
-                    fwrite(empleado,sizeof(eClientes),1,archivoBin);
+                    fwrite(fp,sizeof(eAbono),1,archivoBin);
                 }
             }
             retorno=0;
             fclose(archivoBin);
-            printf("El archivo se guardo exitosamente!\n");
+            printf("El archivo Binario se guardo exitosamente!\n");
         }
         else
         {
