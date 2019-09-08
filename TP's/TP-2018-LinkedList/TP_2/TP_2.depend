@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1538593203 source:c:\users\rocio\desktop\tp_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"ArrayEmployees.h"
+	"misFunciones.h"
+
+1538618342 c:\users\rocio\desktop\tp_2\arrayemployees.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1538620466 source:c:\users\rocio\desktop\tp_2\arrayemployees.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	<ctype.h>
+	"ArrayEmployees.h"
+	"misFunciones.h"
+
+1538587056 c:\users\rocio\desktop\tp_2\misfunciones.h
+
+1538592689 source:c:\users\rocio\desktop\tp_2\misfunciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"misFunciones.h"
+
