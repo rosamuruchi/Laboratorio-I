@@ -1,0 +1,252 @@
+# depslib dependency file v1.0
+1537394808 source:c:\test\repaso 2018 clase1\abmdinamico\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1537803284 source:c:\users\alumno\desktop\abmdinamico\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1537803782 source:c:\users\alumno\desktop\abmempleadossector\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1537966558 source:d:\laura_rocio\abmempleadossector\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"ArrayEmployee.h"
+
+1537965771 d:\laura_rocio\abmempleadossector\arrayemployee.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
+1537973059 source:d:\laura_rocio\abmempleadossector\arrayemployee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdlib.h>
+	<conio.h>
+	"ArrayEmployee.h"
+
+1538579101 source:d:\rocio_laura\abmempleadossector\arrayemployee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538577429 d:\rocio_laura\abmempleadossector\arrayemployee.h
+	"utn.h"
+	"comidas.h"
+
+1538573580 source:d:\rocio_laura\abmempleadossector\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538751692 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538565690 c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\arrayemployee.h
+	"utn.h"
+	"comidas.h"
+
+1538565690 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538578296 d:\rocio_laura\abmempleadossector\utn.h
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538579423 source:d:\rocio_laura\abmempleadossector\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538571850 source:d:\rocio_laura\abmempleadossector\comidas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"almuerzos.h"
+
+1538573461 d:\rocio_laura\abmempleadossector\comidas.h
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538573712 d:\rocio_laura\abmempleadossector\almuerzos.h
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538573759 source:d:\rocio_laura\abmempleadossector\almuerzos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"almuerzos.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538565690 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\almuerzos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"almuerzos.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538584901 c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\almuerzos.h
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538565690 c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\comidas.h
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538565690 c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\utn.h
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538565690 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\comidas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"almuerzos.h"
+
+1538751520 source:c:\users\rocio\desktop\clase_laboratorio-master\abmempleadossector\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538565690 source:c:\users\rocio\desktop\abm _intermedio\abmempleadossector\almuerzos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"almuerzos.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538584901 c:\users\rocio\desktop\abm _intermedio\abmempleadossector\almuerzos.h
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538565690 c:\users\rocio\desktop\abm _intermedio\abmempleadossector\comidas.h
+	"utn.h"
+	"ArrayEmployee.h"
+
+1538565690 c:\users\rocio\desktop\abm _intermedio\abmempleadossector\utn.h
+	"ArrayEmployee.h"
+	"comidas.h"
+
+1538565690 c:\users\rocio\desktop\abm _intermedio\abmempleadossector\arrayemployee.h
+	"utn.h"
+	"comidas.h"
+
+1538970650 source:c:\users\rocio\desktop\abm _intermedio\abmempleadossector\arrayemployee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538970382 source:c:\users\rocio\desktop\abm _intermedio\abmempleadossector\comidas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"comidas.h"
+	"utn.h"
+	"ArrayEmployee.h"
+	"almuerzos.h"
+
+1538565690 source:c:\users\rocio\desktop\abm _intermedio\abmempleadossector\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+
+1538970932 source:c:\users\rocio\desktop\abm _intermedio\abmempleadossector\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"ArrayEmployee.h"
+	"comidas.h"
+	"almuerzos.h"
+

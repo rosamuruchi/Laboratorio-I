@@ -1,0 +1,82 @@
+# depslib dependency file v1.0
+1527116232 source:d:\rosa_laura\1_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+
+1527117012 d:\rosa_laura\1_parcial\funciones.h
+
+1527124380 source:d:\rosa_laura\1_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	"funciones.h"
+
+1526529960 source:c:\users\rosy\documents\rosa_laura\1_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+
+1526530151 c:\users\rosy\documents\rosa_laura\1_parcial\funciones.h
+
+1526532608 source:c:\users\rosy\documents\rosa_laura\1_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	"funciones.h"
+
+1527127332 source:c:\users\rosy\desktop\rosa_laura\1_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<string.h>
+	"funciones.h"
+	"autos.h"
+	"egresos.h"
+
+1527127981 c:\users\rosy\desktop\rosa_laura\1_parcial\funciones.h
+
+1527127982 source:c:\users\rosy\desktop\rosa_laura\1_parcial\autos.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	"autos.h"
+	"funciones.h"
+
+1527127981 c:\users\rosy\desktop\rosa_laura\1_parcial\autos.h
+	"funciones.h"
+
+1527127689 source:c:\users\rosy\desktop\rosa_laura\1_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	"funciones.h"
+	"autos.h"
+	"egresos.h"
+
+1527127490 source:c:\users\rosy\desktop\rosa_laura\1_parcial\egresos.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<ctype.h>
+	<string.h>
+	"egresos.h"
+	"funciones.h"
+	"autos.h"
+
+1527127981 c:\users\rosy\desktop\rosa_laura\1_parcial\egresos.h
+	"funciones.h"
+	"autos.h"
+

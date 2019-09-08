@@ -1,0 +1,114 @@
+# depslib dependency file v1.0
+1539010466 source:d:\laura_rocio\rosa_muruchi_1a\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"clientes.h"
+	"juegos.h"
+	"utn.h"
+
+1539012100 d:\laura_rocio\rosa_muruchi_1a\clientes.h
+	"utn.h"
+
+1538999446 d:\laura_rocio\rosa_muruchi_1a\utn.h
+
+1539012381 d:\laura_rocio\rosa_muruchi_1a\juegos.h
+	"utn.h"
+	"clientes.h"
+
+1539010506 source:d:\laura_rocio\rosa_muruchi_1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clientes.h"
+	"juegos.h"
+	"alquileres.h"
+	"utn.h"
+
+1539011974 d:\laura_rocio\rosa_muruchi_1a\alquileres.h
+
+1539011974 source:d:\laura_rocio\rosa_muruchi_1a\alquileres.c
+
+1540867495 source:c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\alquileres.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"alquileres.h"
+	"juegos.h"
+	"utn.h"
+	"clientes.h"
+
+1541456008 source:c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"clientes.h"
+	"juegos.h"
+	"utn.h"
+
+1541182974 c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\clientes.h
+	"utn.h"
+
+1541009847 c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\utn.h
+
+1541456625 c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\juegos.h
+	"utn.h"
+	"clientes.h"
+
+1541456625 source:c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\juegos.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"juegos.h"
+	"utn.h"
+	"clientes.h"
+
+1541455317 source:c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\main.c
+	<stdio.h>
+	<stdlib.h>
+	"clientes.h"
+	"juegos.h"
+	"alquileres.h"
+	"utn.h"
+	"informes.h"
+
+1540860533 c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\alquileres.h
+	"utn.h"
+	"juegos.h"
+	"clientes.h"
+
+1540860223 source:c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"utn.h"
+	"clientes.h"
+	"juegos.h"
+
+1541455955 source:c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<ctype.h>
+	"informes.h"
+	"juegos.h"
+	"utn.h"
+	"clientes.h"
+	"alquileres.h"
+
+1541010332 c:\users\rocio\desktop\parcial_labo-master\rosa_muruchi_1a\informes.h
+	"utn.h"
+	"juegos.h"
+	"clientes.h"
+	"alquileres.h"
+

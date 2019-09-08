@@ -1,0 +1,75 @@
+# depslib dependency file v1.0
+1525354332 source:d:\rocio_laura\ejercicio_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1525354039 d:\rocio_laura\ejercicio_parcial\funciones.h
+
+1525354132 source:d:\rocio_laura\ejercicio_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1525447095 source:d:\rocio laura\ejercicio_parcial-master\ejercicio_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1525447095 d:\rocio laura\ejercicio_parcial-master\ejercicio_parcial\funciones.h
+
+1525447010 source:d:\rocio laura\ejercicio_parcial-master\ejercicio_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
+1525484425 source:c:\users\rocio\documents\utn\programacion\ejercicio_parcial-master\ejercicio_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
+1525468825 c:\users\rocio\documents\utn\programacion\ejercicio_parcial-master\ejercicio_parcial\funciones.h
+
+1525484076 source:c:\users\rocio\documents\utn\programacion\ejercicio_parcial-master\ejercicio_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
+1525921801 source:e:\ejercicio_parcial-master\ejercicio_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
+1525920331 e:\ejercicio_parcial-master\ejercicio_parcial\funciones.h
+
+1525921605 source:e:\ejercicio_parcial-master\ejercicio_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
+1525920331 source:d:\ejercicio_parcial-master\ejercicio_parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
+1525920331 d:\ejercicio_parcial-master\ejercicio_parcial\funciones.h
+
+1525921605 source:d:\ejercicio_parcial-master\ejercicio_parcial\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	"funciones.h"
+
